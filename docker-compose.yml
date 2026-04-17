@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  backend:
+    build: ./backend
+    container_name: taskbloom-backend
+    ports:
+      - "5000:5000"
+    networks:
+      - taskbloom-net
+
+  frontend:
+    build: ./frontend
+    container_name: taskbloom-frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+    networks:
+      - taskbloom-net
+
+networks:
+  taskbloom-net:
+    driver: bridge
