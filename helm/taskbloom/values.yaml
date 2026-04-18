@@ -1,0 +1,13 @@
+frontend: 
+  image: taskbloom-frontend 
+  tag: latest 
+  replicas: 1 
+  port: 80 
+  nodePort: 30080 
+backend: 
+  image: taskbloom-backend 
+  tag: latest 
+  replicas: 1 
+  port: 5000 
+  nodePort: 30500 
+imagePullPolicy: Never 

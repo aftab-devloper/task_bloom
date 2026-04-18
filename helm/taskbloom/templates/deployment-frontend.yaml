@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: taskbloom-frontend
+  labels:
+    app: taskbloom-frontend
+spec:
+  replicas: {{ .Values.frontend.replicas }}
+  selector:
+    matchLabels:
+      app: taskbloom-frontend
+  template:
+    metadata:
+      labels:
+        app: taskbloom-frontend
+    spec:
+      containers:
+        - name: frontend
+          image: {{ .Values.frontend.image }}:{{ .Values.frontend.tag }}
+          imagePullPolicy: {{ .Values.imagePullPolicy }}
+          ports:
+            - containerPort: {{ .Values.frontend.port }}
