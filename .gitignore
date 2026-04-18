@@ -1,2 +1,5 @@
 node_modules/
 .env
+kind.exe
+kubectl.exe
+helm.exe
