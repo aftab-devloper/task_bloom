@@ -20,6 +20,7 @@
 </div>
 
 ---
+> **Note:** This repo was forked as a base application starting point. The entire DevOps pipeline — Docker containerization, KinD Kubernetes deployment, Helm charts, Jenkins CI/CD, and Prometheus/Grafana monitoring — was independently designed, configured, and implemented by me as a hands-on capstone project.
 
 ## 📋 Table of Contents
 
