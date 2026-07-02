@@ -20,13 +20,13 @@ pipeline {
     }
     stage('Load to KinD') {
       steps {
-        sh '/var/jenkins_home/workspace/taskbloom-pipeline/kind.exe load docker-image $BACKEND_IMAGE:latest --name taskbloom'
-        sh '/var/jenkins_home/workspace/taskbloom-pipeline/kind.exe load docker-image $FRONTEND_IMAGE:latest --name taskbloom'
+        sh '$WORKSPACE/kind.exe load docker-image $BACKEND_IMAGE:latest --name taskbloom'
+        sh '$WORKSPACE/kind.exe load docker-image $FRONTEND_IMAGE:latest --name taskbloom'
       }
     }
     stage('Deploy via Helm') {
       steps {
-        sh '/var/jenkins_home/workspace/taskbloom-pipeline/helm.exe upgrade --install taskbloom-release ./taskbloom'
+        sh '$WORKSPACE/helm.exe upgrade --install taskbloom-release ./taskbloom'
       }
     }
   }
